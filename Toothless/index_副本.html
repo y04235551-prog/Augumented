@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toothless! — 3D Portfolio</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js"
+    ></script>
+
+    <script src="script.js" defer></script>
+  </head>
+
+  <body>
+    <header class="site-header">
+      <nav>
+        <a href="#about">ABOUT</a>
+        <a href="#models">MODELS</a>
+        <a href="#flight">ANIMATION</a>
+      </nav>
+
+      <button class="sound-button" id="soundButton" type="button">
+        ♪ SOUND OFF
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+
+        <span class="hero-ring ring-one" aria-hidden="true"></span>
+        <span class="hero-ring ring-two" aria-hidden="true"></span>
+        <span class="dragon-eye" aria-hidden="true"></span>
+
+        <p class="small-text">PORTFOLIO · Interactive 3D elements</p>
+        <h1>Toothless!</h1>
+        </p>
+      </section>
+
+      <section class="section about" id="about">
+        <div class="section-title">
+          <p>01 · INTRODUCTION</p>
+          <h2>About</h2>
+        </div>
+
+        <div class="about-text">
+          <h3>Hi! I'm Yanzi, a student studying art and multimedia.</h3>
+
+          <p>
+            This portfolio is about two characters from
+            <em>How to Train Your Dragon</em>: Toothless and the Light Fury.
+          </p>
+
+          <p>
+            I created a website where the two models can be viewed
+            separately before they fly together in one animation.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="models">
+        <div class="section-title">
+          <p>02 · CHARACTER STUDIES</p>
+          <h2>Show two dragons</h2>
+        </div>
+
+        <div class="model-grid">
+          <article class="model-card">
+            <model-viewer
+              src='models/models/toothless.glb'
+              alt="3D model of Toothless"
+              camera-controls
+              auto-rotate
+              camera-orbit="35deg 72deg 72%"
+              shadow-intensity="1"
+              touch-action="pan-y"
+            ></model-viewer>
+
+            <div class="model-name">
+              <p>NIGHT FURY</p>
+              <h3>Toothless</h3>
+            </div>
+          </article>
+
+          <article class="model-card light-card">
+            <model-viewer
+              src='models/models/white-dragon.glb'
+              alt="3D model of the Light Fury"
+              camera-controls
+              auto-rotate
+              camera-orbit="35deg 72deg 72%"
+              shadow-intensity="1"
+              touch-action="pan-y"
+            ></model-viewer>
+
+            <div class="model-name">
+              <p>LIGHT FURY</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="flight">
+        <div class="section-title">
+          <p>03 · ANIMATION</p>
+          <h2>Flying together</h2>
+        </div>
+
+        <div class="flight-box">
+          <model-viewer
+            id="flightViewer"
+            src='models/models/demonstration.glb'
+            alt="Toothless and the Light Fury flying together"
+            camera-controls
+            camera-orbit="0deg 75deg 90%"
+            shadow-intensity="1"
+            touch-action="pan-y"
+          ></model-viewer>
+
+          <div class="flight-controls">
+            <button id="playButton" type="button" disabled>
+              ▶ PLAY THE FLIGHT
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <audio id="backgroundMusic" loop preload="metadata">
+      <source src="./audio/background-music.mp3" type="audio/mpeg" />
+    </audio>
+  </body>
+</html>
